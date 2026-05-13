@@ -18,46 +18,36 @@ const scores = [
 //                                       스코어처럼 값을 입력할수 있게 함
 
 //매핑 예시
-let numbers = [0,1,2,3]
 
-let newScores = numbers.map(item=>{return item*2})
-console.log(newScores)
-
-const sources = [0,1,2,3]
-tmp = []
-for (let item of sources){
-  tmp.push(item*2)
-}
-
-sources.map(item=>(item*2))
 function App() {
   
 
   return (
 
     <table>
-      {console.log(newScores)}
+     
       <tr>
-        <th>이름</th>
-        <th>국어</th>
-        <th>영어</th>
-        <th>수학</th>
-        <th>과학</th>
+        {
+          Object.keys(scores[0]).map(key=>(
+            <th>{key}</th>
+          ))
+        }
+        
       </tr>
        {/* tr이 가로 행을 만들고 그 행이 제목이 될거니까 나머지 애들은 th(헤더)가 됨 */}
-      {[0,1,2,3].map(idx => 
+      {scores.map(item =>(
+        <tr>
+          {Object.values(item).map(
+            (values)=>(<td>{values}</td>) 
+          )}
+        </tr>
+      ))}
       
-        (
-          <tr>
-          <td>{scores[0].이름}</td>
-          <td>{scores[0].국어}</td>
-          <td>{scores[0].영어}</td>
-          <td>{scores[0].수학}</td>
-          <td>{scores[0].과학}</td>
-          </tr>
-        )
-      )
-    }
+        
+          
+        
+      
+    
     
       {/*  데이터는 {}를 써야함 데이터는 변하는 값이고 문자는 변하지 않으니까 스코어처럼 값을 입력할수 있게 함*/}
       {/* 같은속성이기 때문에 리스트로 해서 []로도 화면에 뿌릴수 있다 */}
